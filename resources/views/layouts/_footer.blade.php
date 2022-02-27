@@ -1,10 +1,12 @@
 <footer class="footer">
   <div class="container">
-    <span style="color: red;">由Moonshadow编码设计</span>
-    <span>
+    <p class="float-start">
+      由Moonshadow编码设计
+    </p>
+    <p class="float-end">
       <a href="mailto:1815265375@qq.com">
         联系我们
       </a>
-    </span>
+    </p>
   </div>
 </footer>
