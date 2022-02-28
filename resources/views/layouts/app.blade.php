@@ -13,7 +13,9 @@
   <div id="app" class="{{route_class()}}--page">
     @include('layouts._header')
     <div class="container">
+      <div class="col-md-8 offset-md-2">
       @include('shared._messages')
+      </div>
       @yield('content')
     </div>
     @include('layouts._footer')
