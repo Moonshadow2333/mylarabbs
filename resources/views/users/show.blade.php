@@ -7,13 +7,17 @@
         <div class="card-body">
           <img class="card-img-top" src="https://cdn.learnku.com/uploads/images/201709/20/1/PtDKbASVcz.png?imageView2/1/w/600/h/600" alt="{{$user->name}}">
           <h4 class="card-title mt-3">个人简介</h4>
-          <p class="card-text">Some example text some example text. Jane Doe is an architect and engineer</p>
+          <p class="card-text">
+            {{$user->introduction}}
+          </p>
           <hr>
           <h4 class="card-title">
             注册于
           </h4>
           <p class="card-text">
-            2022年3月2号
+            <strong>
+              {{$user->created_at->diffForHumans()}}
+            </strong>
           </p>
         </div>
 

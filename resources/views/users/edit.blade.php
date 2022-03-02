@@ -28,7 +28,7 @@
             <label for="introduction" class="form-label">
               个人简介：
             </label>
-            <textarea class="form-control" id="introduction" rows="3">{{old('introduction',$user->introduction)}}</textarea>
+            <textarea class="form-control" id="introduction" rows="3" name="introduction">{{old('introduction',$user->introduction)}}</textarea>
           <div class="form-group mt-3 mb-3">
             <button type="submit" class="btn btn-primary">
               保存
