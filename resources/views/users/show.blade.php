@@ -5,7 +5,7 @@
     <div class="col-lg-3 col-md-3 hidden-sm hidden-xs user-info">
       <div class="card">
         <div class="card-body">
-          <img class="card-img-top" src="https://cdn.learnku.com/uploads/images/201709/20/1/PtDKbASVcz.png?imageView2/1/w/600/h/600" alt="{{$user->name}}">
+          <img class="card-img-top" src="{{$user->avatar}}" alt="{{$user->name}}">
           <h4 class="card-title mt-3">个人简介</h4>
           <p class="card-text">
             {{$user->introduction}}

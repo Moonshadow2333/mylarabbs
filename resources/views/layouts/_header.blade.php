@@ -27,7 +27,7 @@
          <!-- Dropdown -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-bs-toggle="dropdown">
-            <img src="https://cdn.learnku.com/uploads/images/201709/20/1/PtDKbASVcz.png?imageView2/1/w/60/h/60" class="img-responsive img-circle" width="30px" height="30px">{{Auth::user()->name}}
+            <img src="{{$user->avatar}}" class="img-responsive img-circle" width="30px" height="30px">{{Auth::user()->name}}
           </a>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="{{route('users.show',Auth::id())}}">个人中心</a>
