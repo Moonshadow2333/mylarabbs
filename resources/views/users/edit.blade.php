@@ -9,7 +9,7 @@
         </div>
         <div class="card-body">
           @include('shared._errors')
-          <form action="{{route('users.update',$user->id)}}" method="POST">
+          <form action="{{route('users.update',$user->id)}}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('patch')
           <div class="form-group mb-3 mt-3">
@@ -29,6 +29,16 @@
               个人简介：
             </label>
             <textarea class="form-control" id="introduction" rows="3" name="introduction">{{old('introduction',$user->introduction)}}</textarea>
+          </div>
+          <div class="form-group mb-3">
+            <label for="avatar" class="form-label">
+              用户头像：
+            </label>
+            <input type="file" name="avatar" class="form-control-file" id="avatar">
+            @if($user->avatar)
+              <img src="{{$user->avatar}}" class="img-thumbnail" width="200/">
+            @endif
+          </div>
           <div class="form-group mt-3 mb-3">
             <button type="submit" class="btn btn-primary">
               保存
