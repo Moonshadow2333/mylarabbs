@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use App\Handlers\ImageUploadHandler;
+use App\Events\UserLogin;
+use App\Models\Post;
+use App\Events\BlogView;
 class PostController extends Controller
 {
     // 用于测试表单验证。
@@ -28,7 +32,13 @@ class PostController extends Controller
         if($validator->fails()){
             return redirect('post/create')->withErrors($validator)->withInput();
         }
-        session()->flash('success','恭喜你，注册成功！');
-        return redirect('post/create');
+        // session()->flash('success','恭喜你，注册成功！');
+        event(new UserLogin());
+        return redirect('post/show');
+    }
+    public function show(){
+        $post = Post::find(1);
+        event(new BlogView($post));
+        return view('post.show');
     }
 }

@@ -41,4 +41,4 @@ Route::post('email/resend', 'Auth\VerificationController@resend')->name('verific
 // 用户相关的路由
 Route::resource('users','UsersController',['only'=>['show','update','edit']]);
 // 测试
-Route::resource('post','PostController',['only'=>['create','store']]);
+Route::resource('post','PostController',['only'=>['show','create','store']]);
