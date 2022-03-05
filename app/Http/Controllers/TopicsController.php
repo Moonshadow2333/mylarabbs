@@ -10,8 +10,9 @@ class TopicsController extends Controller
     public function __construct(){
         $this->middleware('auth',['except'=>['index','show']]);
     }
-    public function index(Topic $topic){
-        return view('topics.index');
+    public function index(){
+        $topics = Topic::paginate(15);
+        return view('topics.index',compact('topics'));
     }
     public function create(){
         return view('topics.create');
