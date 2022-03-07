@@ -10,8 +10,26 @@
     <!-- Navbar links -->
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <!-- left side navbar -->
-      <ul>
-
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" href="{{route('topics.index')}}">话题</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link @if (request()->url() == route('categories.show', 1 )) active
+          @endif" href="{{route('categories.show',1)}}">分享</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link @if (request()->url() == route('categories.show', 2 )) active
+          @endif" href="{{route('categories.show',2)}}">教程</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link @if (request()->url() == route('categories.show', 3 )) active
+          @endif" href="{{route('categories.show',3)}}">问答</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link @if (request()->url() == route('categories.show', 4 )) active
+          @endif" href="{{route('categories.show',4)}}">公告</a>
+        </li>
       </ul>
       <!-- right side navbar -->
       <ul class="navbar-nav">

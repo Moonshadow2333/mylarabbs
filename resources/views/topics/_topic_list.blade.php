@@ -23,7 +23,7 @@
                 </a>
               </div>
               <small class="text-secondary">
-                <a href="#" class="text-secondary" title="{{$topic->category->name}}">
+                <a href="{{route('categories.show',$topic->category_id)}}" class="text-secondary" title="{{$topic->category->name}}">
                   <i class="far far-folder"></i>
                   {{$topic->category->name}}
                 </a>

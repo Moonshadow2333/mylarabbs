@@ -8,6 +8,7 @@
   <title>@yield('title','LaraBBS') - laravel进阶课程</title>
   <!-- css -->
   <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/css/mycss1.css">
 </head>
 <body>
   <div id="app" class="{{route_class()}}--page">
