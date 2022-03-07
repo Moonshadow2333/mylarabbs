@@ -10,12 +10,12 @@
       @endif
       <div class="card">
         <div class="card-header">
-          <ul class="nav nav-tabs" role="tablist">
+          <ul class="nav nav-pills" role="tablist">
             <li class="nav-item">
-              <a class="nav-link active" data-bs-toggle="tab" href="#home">最后回复</a>
+              <a class="nav-link  @if (request()->getUri() == url('/topics?order=default')) active @endif"  href="{{Request::url()}}?order=default">最后回复</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="tab" href="#menu1">最新发布</a>
+              <a class="nav-link" href="{{Request::url()}}?order=recent">最新发布</a>
             </li>
           </ul>
         </div>
