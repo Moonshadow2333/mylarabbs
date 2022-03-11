@@ -43,7 +43,13 @@
         </li>
         @else
          <!-- Dropdown -->
+       <li class="nav-item">
+          <a href="{{route('topics.create')}}" class="nav-link mt-1 mr-3 font-weight-bold">
+            <i class="fa fa-plus"></i>
+          </a>
+        </li>
         <li class="nav-item dropdown">
+
           <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-bs-toggle="dropdown">
             <img src="{{Auth::user()->avatar}}" class="img-responsive img-circle" width="30px" height="30px">{{Auth::user()->name}}
           </a>
