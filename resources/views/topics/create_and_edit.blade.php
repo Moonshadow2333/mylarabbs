@@ -14,7 +14,7 @@
         </div>
         <div class="card-body">
           @if($topic->id)
-          <form action="{{route('topics.update')}}" method="POST">
+          <form action="{{route('topics.update',$topic->id)}}" method="POST">
           @method('put')
           @else
           <form action="{{route('topics.store')}}" method="POST">
@@ -29,13 +29,15 @@
             </div>
             <div class="mb-3 form-group">
               <select class="form-control" name="category_id" required>
-                <option value="" hidden disabled selected>
+                <option value="" hidden disabled {{$topic->id ? '' : 'selected'}}>
                   请选择分类
                 </option>
                 @foreach($categories as $category)
-                  <option value="{{$category->id}}">
-                    {{$category->name}}
-                  </option>
+                  @foreach($categories as $value)
+                    <option value="{{$value->id}}" {{$topic->category_id == $value->id ? 'selected' : ''}}>
+                      {{$value->name}}
+                    </option>
+                  @endforeach
                 @endforeach
               </select>
             </div>
