@@ -13,7 +13,10 @@ class TopicsController extends Controller
     public function __construct(){
         $this->middleware('auth', ['except' => ['index', 'show']]);
     }
-    public function show(Topic $topic){
+    public function show(Request $request,Topic $topic){
+        if(!empty($topic->slug) && $topic->slug != $request->slug){
+            return redirect($topic->link(),301);
+        }
         return view('topics.show',compact('topic'));
     }
     public function index(Request $request,Topic $topic){
@@ -30,7 +33,7 @@ class TopicsController extends Controller
         $topic->user_id = Auth::id();
         $topic->save();
 
-        return redirect()->route('topics.show', $topic->id)->with('success', '帖子创建成功！');
+        return redirect()->to($topic->link())->with('success', '帖子创建成功！');
     }
     public function uploadImage(Request $request, ImageUploadHandler $uploader)
     {
@@ -61,7 +64,7 @@ class TopicsController extends Controller
     public function update(TopicRequest $request,Topic $topic){
         $this->authorize('update',$topic);
         $topic->update($request->all());
-        return redirect()->route('topics.show',$topic->id)->with('success','更新成功');
+        return redirect()->to($topic->link())->with('success','更新成功');
     }
     public function destroy(Topic $topic){
         $this->authorize('destroy',$topic);

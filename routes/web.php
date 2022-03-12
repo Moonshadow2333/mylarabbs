@@ -41,7 +41,8 @@ Route::post('email/resend', 'Auth\VerificationController@resend')->name('verific
 // 用户相关的路由
 Route::resource('users','UsersController',['only'=>['show','update','edit']]);
 // topic相关路由
-Route::resource('topics', 'TopicsController', ['only' => ['index', 'create', 'store', 'edit', 'destroy','show','update']]);
+Route::resource('topics', 'TopicsController', ['only' => ['index', 'create', 'store', 'edit', 'destroy','update']]);
+Route::get('topics/{topic}/{slug?}','TopicsController@show')->name('topics.show');
 Route::post('topics/upload_image','TopicsController@uploadImage')->name('topics.upload_image');
 // category相关路由
 Route::resource('categories','CategoriesController',['only'=>['show']]);

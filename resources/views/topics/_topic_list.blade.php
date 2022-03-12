@@ -12,7 +12,7 @@
           </div>
           <div class="flex-grow-1 ms-3">
               <div>
-                <a href="{{route('topics.show',[$topic->id])}}" title="{{$topic->title}}">
+                <a href="{{$topic->link()}}" title="{{$topic->title}}">
                   {{$topic->title}}
                 </a>
                 <a href="{{route('topics.show',[$topic->id])}}" class="float-end">
