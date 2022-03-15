@@ -50,3 +50,6 @@ Route::resource('categories','CategoriesController',['only'=>['show']]);
 // 测试
 Route::resource('post','PostController',['only'=>['show','create','store']]);
 
+// 测试队列
+Route::get('testQueue','TestsController@testQueue');
+
