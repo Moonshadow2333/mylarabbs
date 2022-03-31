@@ -51,6 +51,7 @@ Route::resource('categories','CategoriesController',['only'=>['show']]);
 Route::resource('replies','RepliesController',['only'=>['store','destroy']]);
 // 通知相关路由
 Route::resource('notifications','NotificationsController',['only'=>['index']]);
+Route::get('permission-denied', 'PagesController@permissionDenied')->name('permission-denied');
 // 测试
 Route::resource('post','PostController',['only'=>['show','create','store']]);
 
