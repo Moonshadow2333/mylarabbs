@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Handlers\ImageUploadHandler;
 use Auth;
 use App\Models\User;
+use App\Models\Link;
 class TopicsController extends Controller
 {
     public function __construct(){
@@ -20,12 +21,13 @@ class TopicsController extends Controller
         }
         return view('topics.show',compact('topic'));
     }
-    public function index(Request $request,Topic $topic, User $user){
+    public function index(Request $request,Topic $topic, User $user, Link $link){
         $topics = $topic->withOrder($request->order)->with('user','category')->paginate(15);
         // $topics = Topic::paginate(30);
         $active_users = $user->getActiveUsers();
         // dd($active_users);
-        return view('topics.index',compact('topics','active_users'));
+        $links = $link->getAllCached();
+        return view('topics.index',compact('topics','active_users','links'));
     }
     public function create(Topic $topic){
         $categories = Category::all();
