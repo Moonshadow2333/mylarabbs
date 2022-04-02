@@ -19,6 +19,12 @@
               {{$user->created_at->diffForHumans()}}
             </strong>
           </p>
+
+          <h4 class="card-title">
+            最后活跃于
+          </h4>
+          <p title="{{  $user->last_actived_at }}">{{ $user->last_actived_at->diffForHumans() }}</p>
+
         </div>
 
       </div>
