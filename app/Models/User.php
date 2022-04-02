@@ -22,6 +22,7 @@ class User extends Authenticatable implements MustVerifyEmailContract
      *
      * @var array<int, string>
      */
+    use Traits\ActiveUserHelper;
     protected $fillable = [
         'name',
         'email',
